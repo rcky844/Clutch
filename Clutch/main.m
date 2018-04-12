@@ -146,7 +146,7 @@ int main (int argc, const char * argv[])
             else if ([option isEqualToString:@"fmwk-dump"])
             {
 
-                NSArray *arguments = [NSProcessInfo processInfo].arguments;
+                NSArray<NSString *> *arguments = [NSProcessInfo processInfo].arguments;
 
                 if (([arguments[1]isEqualToString:@"--fmwk-dump"]||[arguments[1]isEqualToString:@"-f"]) && (arguments.count == 13))
                 {
@@ -155,15 +155,15 @@ int main (int argc, const char * argv[])
 
                     fmwk.binPath = arguments[2];
                     fmwk.dumpPath = arguments[3];
-                    fmwk.pages = [arguments[4]intValue];
-                    fmwk.ncmds = [arguments[5]intValue];
-                    fmwk.offset = [arguments[6]intValue];
+                    fmwk.pages = (uint32_t)[arguments[4]intValue];
+                    fmwk.ncmds = (uint32_t)[arguments[5]intValue];
+                    fmwk.offset = (uint32_t)[arguments[6]intValue];
                     fmwk.bID = arguments[7];
-                    fmwk.hashOffset = [arguments[8] intValue];
-                    fmwk.codesign_begin = [arguments[9] intValue];
-                    fmwk.cryptsize = [arguments[10] intValue];
-                    fmwk.cryptoff = [arguments[11] intValue];
-                    fmwk.cryptlc_offset = [arguments[12] intValue];
+                    fmwk.hashOffset = (uint32_t)[arguments[8] intValue];
+                    fmwk.codesign_begin = (uint32_t)[arguments[9] intValue];
+                    fmwk.cryptsize = (uint32_t)[arguments[10] intValue];
+                    fmwk.cryptoff = (uint32_t)[arguments[11] intValue];
+                    fmwk.cryptlc_offset = (uint32_t)[arguments[12] intValue];
                     fmwk.dumpSize = fmwk.cryptoff + fmwk.cryptsize;
 
 
