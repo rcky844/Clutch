@@ -228,7 +228,7 @@
 			int dumpResult = 0;
             if (waitpid(pid, &dumpResult, 0) != -1) {
                 [[ClutchPrint sharedInstance] printDeveloper: @"Child exited with status %u", dumpResult];
-                finalDumpResult = dumpResult;
+                finalDumpResult = WEXITSTATUS(dumpResult);
             } else {
                 perror("waitpid");
             }

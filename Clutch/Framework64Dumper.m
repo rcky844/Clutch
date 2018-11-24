@@ -217,7 +217,7 @@
             kill(pid, SIGCONT);
             if (waitpid(pid, &dumpResult, 0) != -1) {
                 [[ClutchPrint sharedInstance] printColor:ClutchPrinterColorPurple format:@"Child exited with status %u", dumpResult];
-                finalDumpResult = dumpResult;
+                finalDumpResult = WEXITSTATUS(dumpResult);
             } else {
                 perror("waitpid");
             }
