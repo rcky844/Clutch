@@ -34,10 +34,6 @@
     [[ClutchPrint sharedInstance] printVerbose:@"Preparing to dump %@", _executable];
 	[[ClutchPrint sharedInstance] printVerbose:@"Path: %@", self.executable.binaryPath];
     
-    NSDictionary *ownershipInfo = @{NSFileOwnerAccountName:@"mobile", NSFileGroupOwnerAccountName:@"mobile"};
-    
-    [[NSFileManager defaultManager] setAttributes:ownershipInfo ofItemAtPath:self.executable.binaryPath error:nil];
-    
 }
 
 - (void)dumpToDirectoryURL:(NSURL *)directoryURL
